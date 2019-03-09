@@ -21,9 +21,9 @@ int menu_tamanho(){
     printf("-------- TAMANHO DO VETOR --------\n\n");
     printf("1- 10\n");
     printf("2- 100\n");
-    printf("3- 1000\n");
-    printf("4- 10000\n");
-    printf("5- 100000\n");
+    printf("3- 1.000\n");
+    printf("4- 10.000\n");
+    printf("5- 100.000\n");
     printf("0 - SAIR\n\n:");
 
     scanf("%d", &opcao);

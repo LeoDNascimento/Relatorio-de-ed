@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 #include "vetores.h"
 #include "ordenacao.h"
 #include "menu.h"
