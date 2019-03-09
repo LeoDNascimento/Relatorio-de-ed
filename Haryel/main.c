@@ -80,14 +80,17 @@ int main(){
                 array = gera_vetor_ord_dec(size);
                 doing(array, size);
                 opcao_vetor = 0;
+                break;
             case 3:
                 array = gera_vetor_alt(size);
                 doing(array, size);
                 opcao_vetor = 0;
+                break;
             case 4:
                 array = gera_vetor_alt_norepeat(size);
                 doing(array, size);
                 opcao_vetor = 0;
+                break;
         }
     }while(opcao_vetor != 0);
     

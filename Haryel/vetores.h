@@ -37,7 +37,7 @@ int* gera_vetor_alt_norepeat(int size){
 	int aux;
 
 	for(int i = 0; i < size; i++){
-		aux = rand() % 100;
+		aux = rand() % 20000;
 		while(existe(array, i, aux)){
 			aux = rand() % 20000;
 		}
