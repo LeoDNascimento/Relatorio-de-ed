@@ -23,7 +23,7 @@ int* aloca_vetor(int size){
 	return array;
 }
 
-/*bool existe(int* array, int size, int valor){
+bool existe(int* array, int size, int valor){
 	for(int i = 0; i < size; i++){
 		if(array[i] == valor)
 			return true;
@@ -33,29 +33,39 @@ int* aloca_vetor(int size){
 
 int* gera_vetor_alt_norepeat(int size){
 
-	srand(time(NULL));
-
 	int *array = aloca_vetor(size);
 	int aux;
 
 	for(int i = 0; i < size; i++){
 		aux = rand() % 100;
 		while(existe(array, i, aux)){
-			aux = rand() % 100;
+			aux = rand() % 20000;
 		}
 		array[i] = aux;
 	}
-}*/
+	return array;
+}
 
 int* gera_vetor_alt(int size){
-
-	srand(time(NULL));
 
 	int *array = aloca_vetor(size);
 
 	for (int i = 0; i <= size; i++){
-		array[i] = rand() % 100;
+		array[i] = rand() % 20000;
 	}
 
+	return array;
+}
+
+int* gera_vetor_ord_dec(int size){
+
+	int *array = aloca_vetor(size);
+	
+	int aux = size;
+
+	for(int i = 0; i < aux; i++, size--){
+		array[i] = size;
+	}
+	
 	return array;
 }

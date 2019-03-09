@@ -19,6 +19,7 @@ int main(){
     int opcao_busca;
     int size;
     int *array;
+    srand(time(NULL));
     
 
     /*
@@ -76,17 +77,17 @@ int main(){
                 //gerar_vetor_ord_crescente();
                 break;
             case 2:
-                //gerar_vetor_ord_decrescente();
-                break;
+                array = gera_vetor_ord_dec(size);
+                doing(array, size);
+                opcao_vetor = 0;
             case 3:
                 array = gera_vetor_alt(size);
                 doing(array, size);
                 opcao_vetor = 0;
             case 4:
-                /*gera_vetor_alt_norepeat(size);
+                array = gera_vetor_alt_norepeat(size);
                 doing(array, size);
-                opcao_vetor = 0;*/
-                break;
+                opcao_vetor = 0;
         }
     }while(opcao_vetor != 0);
     
