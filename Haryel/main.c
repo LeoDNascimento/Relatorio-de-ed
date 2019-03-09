@@ -8,6 +8,7 @@
 #include "functions.h"
 
 int detalhes[] = {0,0};
+float tempo[] = {0,0};
 
 int main(){
 
@@ -112,8 +113,8 @@ int main(){
                 free(array);
                 return 0;
             case 1:
-                selectionSort(array, size, detalhes);
-                showDetalhes(detalhes, array, size);
+                selectionSort(array, size, detalhes, tempo);
+                showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 2:
@@ -133,7 +134,7 @@ int main(){
                 break;
             case 7:
                 bubbleSort(array, size, detalhes);
-                showDetalhes(detalhes, array, size);
+                showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
         }
