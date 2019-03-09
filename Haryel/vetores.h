@@ -17,23 +17,23 @@ void showArray(int *array, int size){
 
 }*/
  
-int* aloca_vetor(int *array, int size){
+int* aloca_vetor(int size){
 	
-	*array = (int *) malloc(size * sizeof(int));
+	int *array = (int *) malloc(size * sizeof(int));
 
-	if(*array == NULL){
+	if(array == NULL){
 		printf("Erro: Sem memoria!\n");
 		exit(1);
 	}
 
-	return *array;
+	return array;
 }
 
 int* gera_vetor_alt(int size){
 
 	srand(time(NULL));
 
-	int *array = aloca_vetor(array, size);
+	int *array = aloca_vetor(size);
 
 	for (int i = 0; i <= size; i++){
 		array[i] = rand() % 100;
