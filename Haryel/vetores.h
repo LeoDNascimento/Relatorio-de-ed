@@ -69,3 +69,14 @@ int* gera_vetor_ord_dec(int size){
 	
 	return array;
 }
+
+int* gera_vetor_ord_cre(int size){
+
+	int *array = aloca_vetor(size);
+
+	for(int i = 0; i < size; i++){
+		array[i] = i;
+	}
+
+	return array;
+}

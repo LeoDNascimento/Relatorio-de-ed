@@ -74,7 +74,9 @@ int main(){
                 printf("Ate logo!\n");
                 return 0;
             case 1:
-                //gerar_vetor_ord_crescente();
+                array = gera_vetor_ord_cre(size);
+                doing(array, size);
+                opcao_vetor = 0;
                 break;
             case 2:
                 array = gera_vetor_ord_dec(size);
