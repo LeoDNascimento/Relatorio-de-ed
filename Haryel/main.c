@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 #include "vetores.h"
 #include "ordenacao.h"
 #include "menu.h"
 #include "functions.h"
 
 int detalhes[] = {0,0};
+float tempo[] = {0,0};
 
 int main(){
 
@@ -18,6 +20,7 @@ int main(){
     int opcao_busca;
     int size;
     int *array;
+    srand(time(NULL));
     
 
     /*
@@ -72,17 +75,24 @@ int main(){
                 printf("Ate logo!\n");
                 return 0;
             case 1:
-                //gerar_vetor_ord_crescente();
+                array = gera_vetor_ord_cre(size);
+                doing(array, size);
+                opcao_vetor = 0;
                 break;
             case 2:
-                //gerar_vetor_ord_decrescente();
+                array = gera_vetor_ord_dec(size);
+                doing(array, size);
+                opcao_vetor = 0;
                 break;
             case 3:
                 array = gera_vetor_alt(size);
                 doing(array, size);
                 opcao_vetor = 0;
+                break;
             case 4:
-                //gerar_vetor_alt_norepeat();
+                array = gera_vetor_alt_norepeat(size);
+                doing(array, size);
+                opcao_vetor = 0;
                 break;
         }
     }while(opcao_vetor != 0);
@@ -103,8 +113,8 @@ int main(){
                 free(array);
                 return 0;
             case 1:
-                selectionSort(array, size, detalhes);
-                showDetalhes(detalhes, array, size);
+                selectionSort(array, size, detalhes, tempo);
+                showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 2:
@@ -124,7 +134,7 @@ int main(){
                 break;
             case 7:
                 bubbleSort(array, size, detalhes);
-                showDetalhes(detalhes, array, size);
+                showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
         }
