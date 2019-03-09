@@ -79,7 +79,7 @@ int main(){
                 break;
             case 3:
                 array = gera_vetor_alt(size);
-                doing(array, size, detalhes, 2);
+                doing(array, size);
                 opcao_vetor = 0;
             case 4:
                 //gerar_vetor_alt_norepeat();
@@ -104,7 +104,7 @@ int main(){
                 return 0;
             case 1:
                 selectionSort(array, size, detalhes);
-                doing(array, size, detalhes, 2);
+                showDetalhes(detalhes, array, size);
                 opcao_ordenacao = 0;
                 break;
             case 2:
@@ -124,7 +124,7 @@ int main(){
                 break;
             case 7:
                 bubbleSort(array, size, detalhes);
-                doing(array, size, detalhes, 2);
+                showDetalhes(detalhes, array, size);
                 opcao_ordenacao = 0;
                 break;
         }

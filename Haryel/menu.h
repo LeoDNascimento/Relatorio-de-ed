@@ -7,7 +7,7 @@ int menu_vetores(){
     printf("2 - Vetor Ordenado Decrescente\n");
     printf("3 - Vetor de numeros aleatorios\n");
     printf("4 - Vetor de numeros aleatorios sem repeticao\n");
-    printf("0 - SAIR\n");
+    printf("0 - SAIR\n\n:");
     
     scanf("%d", &opcao);
 
@@ -18,13 +18,13 @@ int menu_tamanho(){
 
     int opcao;
 
-    printf("-------- TAMANHO DO VETOR --------\n");
+    printf("-------- TAMANHO DO VETOR --------\n\n");
     printf("1- 10\n");
     printf("2- 100\n");
     printf("3- 1000\n");
     printf("4- 10000\n");
     printf("5- 100000\n");
-    printf("0 - SAIR\n");
+    printf("0 - SAIR\n\n:");
 
     scanf("%d", &opcao);
 
@@ -42,7 +42,7 @@ int menu_ordenacao(){
     printf("5 - InsertionSort\n");
     printf("6 - ShellSort\n");
     printf("7 - BubbleSort\n");
-    printf("0 - SAIR\n");
+    printf("0 - SAIR\n\n:");
 
     scanf("%d", &opcao);
 
@@ -56,7 +56,7 @@ int menu_busca(){
     printf("-------- BUSCA --------\n");
     printf("1 - Busca Binaria\n");
     printf("2 - Busca Sequencial\n");
-    printf("0 - SAIR\n");
+    printf("0 - SAIR\n\n:");
 
     scanf("%d", &opcao);
 
