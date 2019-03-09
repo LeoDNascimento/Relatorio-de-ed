@@ -83,7 +83,9 @@ int main(){
                 doing(array, size);
                 opcao_vetor = 0;
             case 4:
-                //gerar_vetor_alt_norepeat();
+                /*gera_vetor_alt_norepeat(size);
+                doing(array, size);
+                opcao_vetor = 0;*/
                 break;
         }
     }while(opcao_vetor != 0);

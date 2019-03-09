@@ -11,12 +11,6 @@ void showArray(int *array, int size){
 	printf("\n");
 }
 
-/*bool gera_vetor_n_repetido(int size){
-
-	srand(time(NULL));
-
-}*/
- 
 int* aloca_vetor(int size){
 	
 	int *array = (int *) malloc(size * sizeof(int));
@@ -28,6 +22,30 @@ int* aloca_vetor(int size){
 
 	return array;
 }
+
+/*bool existe(int* array, int size, int valor){
+	for(int i = 0; i < size; i++){
+		if(array[i] == valor)
+			return true;
+	}
+	return false;
+}
+
+int* gera_vetor_alt_norepeat(int size){
+
+	srand(time(NULL));
+
+	int *array = aloca_vetor(size);
+	int aux;
+
+	for(int i = 0; i < size; i++){
+		aux = rand() % 100;
+		while(existe(array, i, aux)){
+			aux = rand() % 100;
+		}
+		array[i] = aux;
+	}
+}*/
 
 int* gera_vetor_alt(int size){
 
