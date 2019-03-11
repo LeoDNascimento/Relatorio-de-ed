@@ -1,6 +1,6 @@
 void doing(int* array, int size){
 
-    system("cls || clear");
+    system("clear");
     showArray(array, size);
     printf("\nAperte a tecla [ENTER] para continuar . . .\n");
     setbuf(stdin, NULL);
@@ -9,7 +9,7 @@ void doing(int* array, int size){
 
 void showDetalhes(int* detalhes, int* array, int size, float* tempo){
 
-    system("cls || clear");
+    system("clear");
     
     showArray(array, size);
     printf("Trocas: %d\n", detalhes[1]);

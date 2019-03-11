@@ -29,7 +29,7 @@ int main(){
    
    do{
 
-        system("cls || clear");
+        system("clear");
 
         opcao_tamanho = menu_tamanho();
 
@@ -66,7 +66,7 @@ int main(){
 
     do{ 
 
-        system("clear || cls");
+        system("clear");
 
         opcao_vetor = menu_vetores();
 
@@ -103,7 +103,7 @@ int main(){
     
     do{
 
-        system("cls || clear");
+        system("clear");
 
         opcao_ordenacao = menu_ordenacao();
 
@@ -147,7 +147,7 @@ int main(){
     
     do{
 
-        system("cls || clear");
+        system("clear");
 
         opcao_busca = menu_busca();
 
