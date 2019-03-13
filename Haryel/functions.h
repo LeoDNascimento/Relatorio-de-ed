@@ -34,8 +34,16 @@ int solicitaBusca(){
     return valor;
 }
 
-void showBusca(int i, int valor){
+void showBusca(int posicao, int valor){
 
-    printf("\nO valor %d foi encontrado na posicao %d do vetor ordenado.\n", valor, i);
+    system("clear");
 
+    printf("---------- RESULTADO BUSCA ----------\n");
+
+    if(posicao)
+        printf("\nO valor %d foi encontrado na posicao %d do vetor ordenado!\n", valor, posicao);
+    else
+        printf("\nO valor %d nao foi encontrado no vetor!\n", valor);
+
+    printf("\nAte logo!\n");
 }

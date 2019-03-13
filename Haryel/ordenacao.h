@@ -48,6 +48,10 @@ void selectionSort(int *array, int size, unsigned long int *detalhes, float* tem
     tempo[1] = clock();
 }
 
+/*
+    Metodo: GnomeSort
+*/
+
 int* gnomeSort(int *array, int size, unsigned long int *detalhes, float* tempo){
    
    int i, aux;
@@ -72,3 +76,9 @@ int* gnomeSort(int *array, int size, unsigned long int *detalhes, float* tempo){
 
    return array;
 }
+
+/*
+    Metodo: InsertionSort
+*/
+
+

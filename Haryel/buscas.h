@@ -23,7 +23,7 @@ int buscaBin(int *array, int size, int valor){
             if(valor > array[meio])
                 inicio = meio+1; //busca na metade da direita
             else 
-                return meio; //caso o elemento do meio seja o selecionado
+                return meio; 
     }
     return false; //valor n foi encontrado
 }
