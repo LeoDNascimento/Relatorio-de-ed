@@ -160,14 +160,14 @@ int main(){
                 free(array);
                 return 0;
             case 1: 
-                /*valor = solicitaBusca();
-                posicao = buscaBin();
+                valor = solicitaBusca();
+                posicao = buscaBin(array, size, valor);
                 showBusca(posicao, valor);
-                opcao_busca = 0;*/
+                opcao_busca = 0;
                 break;
             case 2:
                 valor = solicitaBusca();
-                posicao = buscaSeq(array, size, valor, tempo);
+                posicao = buscaSeq(array, size, valor);
                 showBusca(posicao, valor);
                 opcao_busca = 0;
                 break;
