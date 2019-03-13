@@ -127,7 +127,9 @@ int main(){
                 //mergeSort();
                 break;
             case 4:
-                //gnomeSort();
+                gnomeSort(array, size, detalhes, tempo);
+                showDetalhes(detalhes, array, size, tempo);
+                opcao_ordenacao = 0;
                 break;
             case 5:
                 //insertionSort();

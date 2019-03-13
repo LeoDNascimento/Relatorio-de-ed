@@ -47,3 +47,28 @@ void selectionSort(int *array, int size, unsigned long int *detalhes, float* tem
     }
     tempo[1] = clock();
 }
+
+int* gnomeSort(int *array, int size, unsigned long int *detalhes, float* tempo){
+   
+   int i, aux;
+
+   tempo[0] = clock();
+   for(int i = 1; i < size;){
+       if(array[i-1] <= array[i]){
+           ++i;
+           detalhes[0]++;
+       }
+       else{
+           detalhes[1]++;
+           aux = array[i];
+           array[i] = array[i-1];
+           array[i-1] = aux;
+           --i;
+           if(i == 0)
+               i = 1;
+       }
+   }
+   tempo[1] = clock();
+
+   return array;
+}

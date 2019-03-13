@@ -25,5 +25,5 @@ int buscaBin(int *array, int size, int valor){
             else 
                 return meio; //caso o elemento do meio seja o selecionado
     }
-    return -1; //valor n foi encontrado
+    return false; //valor n foi encontrado
 }
