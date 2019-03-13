@@ -21,3 +21,13 @@ void showDetalhes(unsigned long int* detalhes, int* array, int size, float* temp
     getchar();
     
 }
+
+int solicitaBusca(){
+
+    system("clear");
+
+    printf("Digite o valor que deseja buscar: %d");
+    scanf("%d", &valor);
+
+    return valor;
+}
