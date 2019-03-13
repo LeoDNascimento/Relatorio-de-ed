@@ -2,10 +2,11 @@
     Metodo: BubbleSort
 */
 
-void bubbleSort(int *array, int size, int *detalhes){
+void bubbleSort(int *array, int size, int *detalhes, float* tempo){
 
 	int aux = 0;
 
+    tempo[0] = clock();
 	for(int i = 0; i < size; i++){
 		for(int j = 0; j < size; j++){
 			detalhes[0]++;
@@ -17,6 +18,7 @@ void bubbleSort(int *array, int size, int *detalhes){
 			}
 		}
 	}
+    tempo[1] = clock();
 }
 
 /*

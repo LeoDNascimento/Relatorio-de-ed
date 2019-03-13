@@ -133,7 +133,7 @@ int main(){
                 //shellSort();
                 break;
             case 7:
-                bubbleSort(array, size, detalhes);
+                bubbleSort(array, size, detalhes, tempo);
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
