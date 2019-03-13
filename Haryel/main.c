@@ -22,6 +22,7 @@ int main(){
     int size;
     int *array;
     int valor;
+    int posicao;
     srand(time(NULL));
     
 
@@ -159,11 +160,16 @@ int main(){
                 free(array);
                 return 0;
             case 1: 
-                //buscaBin();
+                /*valor = solicitaBusca();
+                posicao = buscaBin();
+                showBusca(posicao, valor);
+                opcao_busca = 0;*/
                 break;
             case 2:
                 valor = solicitaBusca();
-                buscaSeq(array, size, valor, tempo);
+                posicao = buscaSeq(array, size, valor, tempo);
+                showBusca(posicao, valor);
+                opcao_busca = 0;
                 break;
         }
 

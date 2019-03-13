@@ -19,15 +19,24 @@ void showDetalhes(unsigned long int* detalhes, int* array, int size, float* temp
     
     setbuf(stdin, NULL);
     getchar();
-    
+
 }
 
 int solicitaBusca(){
 
+    int valor;
+
     system("clear");
 
-    printf("Digite o valor que deseja buscar: %d");
+    printf("Digite o valor que deseja buscar: ");
     scanf("%d", &valor);
 
     return valor;
+}
+
+void showBusca(int i, int valor){
+
+    printf("\nO valor %d foi encontrado na posicao %d do vetor ordenado.\n", valor, i);
+    printf("Tempo: %f", (tempo[1] - tempo[0])/CLOCKS_PER_SEC);
+
 }
