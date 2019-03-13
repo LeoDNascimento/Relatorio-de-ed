@@ -7,7 +7,7 @@
 #include "menu.h"
 #include "functions.h"
 
-int detalhes[] = {0,0};
+unsigned long int detalhes[] = {0,0};
 float tempo[] = {0,0};
 
 int main(){
@@ -54,7 +54,7 @@ int main(){
                 opcao_tamanho = 0;
                 break;
             case 5:
-                size = 1000000;
+                size = 100000;
                 opcao_tamanho = 0;
                 break;     
         }

@@ -2,13 +2,13 @@
     Metodo: BubbleSort
 */
 
-void bubbleSort(int *array, int size, int *detalhes, float* tempo){
+void bubbleSort(int *array, int size, unsigned long int *detalhes, float* tempo){
 
 	int aux = 0;
 
     tempo[0] = clock();
-	for(int i = 0; i < size; i++){
-		for(int j = 0; j < size; j++){
+	for(int i = 0; i < size-1; i++){
+		for(int j = 0; j < size-1; j++){
 			detalhes[0]++;
 			if(array[j] > array[j+1]){
 				aux = array[j];
@@ -25,7 +25,7 @@ void bubbleSort(int *array, int size, int *detalhes, float* tempo){
     Metodo: SelectionSort
 */
 
-void selectionSort(int *array, int size, int *detalhes, float* tempo){
+void selectionSort(int *array, int size, unsigned long int *detalhes, float* tempo){
 
     int menor, troca;
 

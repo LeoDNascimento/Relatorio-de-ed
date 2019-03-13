@@ -1,11 +1,7 @@
 void showArray(int *array, int size){
 	
 	for(int i = 0; i < size; i++){
-		if(i == size-1){
-			printf("%d\n", array[i]);
-		} else {
-			printf("%d - ", array[i]);
-		}
+		printf("array[%d]: %d\n", i ,array[i]);
 	}
 	
 	printf("\n");
@@ -37,9 +33,9 @@ int* gera_vetor_alt_norepeat(int size){
 	int aux;
 
 	for(int i = 0; i < size; i++){
-		aux = rand() % 20000;
+		aux = rand() % 1000000;
 		while(existe(array, i, aux)){
-			aux = rand() % 20000;
+			aux = rand() % 1000000;
 		}
 		array[i] = aux;
 	}
@@ -51,7 +47,7 @@ int* gera_vetor_alt(int size){
 	int *array = aloca_vetor(size);
 
 	for (int i = 0; i <= size; i++){
-		array[i] = rand() % 20000;
+		array[i] = rand() % 1000000;
 	}
 
 	return array;
