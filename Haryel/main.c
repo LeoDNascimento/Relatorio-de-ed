@@ -6,6 +6,7 @@
 #include "ordenacao.h"
 #include "menu.h"
 #include "functions.h"
+#include "buscas.h"
 
 int detalhes[] = {0,0};
 float tempo[] = {0,0};
@@ -20,6 +21,7 @@ int main(){
     int opcao_busca;
     int size;
     int *array;
+    int valor;
     srand(time(NULL));
     
 
@@ -160,7 +162,8 @@ int main(){
                 //buscaBin();
                 break;
             case 2:
-                //buscaSeq();
+                valor = solicitaBusca();
+                buscaSeq(array, size, valor, tempo);
                 break;
         }
 
