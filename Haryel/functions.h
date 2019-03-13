@@ -38,7 +38,7 @@ void showBusca(int posicao, int valor){
 
     system("clear");
 
-    printf("---------- RESULTADO BUSCA ----------\n");
+    printf("-------- RESULTADO BUSCA --------\n");
 
     if(posicao)
         printf("\nO valor %d foi encontrado na posicao %d do vetor ordenado!\n", valor, posicao);

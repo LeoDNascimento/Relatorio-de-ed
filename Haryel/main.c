@@ -132,7 +132,9 @@ int main(){
                 opcao_ordenacao = 0;
                 break;
             case 5:
-                //insertionSort();
+                insertionSort(array, size, detalhes, tempo);
+                showDetalhes(detalhes, array, size, tempo);
+                opcao_ordenacao = 0;
                 break;
             case 6:
                 //shellSort();
