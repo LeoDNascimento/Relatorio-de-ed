@@ -1,0 +1,80 @@
+# include <stdio.h>
+# include <stdlib.h>
+# include <ctype.h>
+# include <string.h>
+# include <stdbool.h>
+# include <time.h>
+
+
+int VectorSort[];
+int size = 10;
+int troca=0;
+int comparacao=0;
+
+
+void complet(int vetor[], int tam);
+void imprime(int *vetor, int tam);
+
+int main (void){
+
+clock_t Tempo[2];
+Tempo[0] = clock();
+
+complet(VectorSort, size);
+imprime(VectorSort, size);
+
+    Tempo[1] = clock();
+    float TempoGasto = (Tempo[1] - Tempo[0]) * 1000.0 / CLOCKS_PER_SEC;
+
+    gnome_sort(VectorSort, size);
+    imprime(VectorSort,size);
+    printf("Tempo gasto: %f ms.", TempoGasto);
+
+
+    printf("\n trocas = %d", troca);
+    printf("\n comparacao = %d", comparacao);
+    return 0;
+}
+
+void complet(int vetor[], int tam){
+    int k, aux=tam;
+    for(k=0; k<tam; k++){
+    VectorSort[k]=aux;
+    aux--;
+}
+
+}
+
+
+void gnome_sort(int *array, int size){
+   int i, tmp;
+   for(i=1; i<size; ){
+       if(array[i-1] <= array[i]){
+           comparacao++;
+           ++i;
+       }
+       else{
+            troca++;
+           tmp = array[i];
+           array[i] = array[i-1];
+           array[i-1] = tmp;
+           --i;
+           if(i == 0)
+               i = 1;
+       }
+   }
+}
+
+
+
+void imprime(int *vetor, int tam){
+    int j;
+    printf("\n");
+for(j=0;j<tam;j++){
+    printf("\n%d", VectorSort[j]);
+}
+    printf("\n");
+
+}
+
+

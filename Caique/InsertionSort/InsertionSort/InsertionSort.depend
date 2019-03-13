@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1551795533 source:c:\users\kkk\documents\insertionsort\insertionsort\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+	<stdbool.h>
+
