@@ -23,6 +23,7 @@ int main(){
     int *array;
     int valor;
     int posicao;
+
     srand(time(NULL));
     
 
@@ -122,9 +123,13 @@ int main(){
                 break;
             case 2:
                 //quickSort();
+                showDetalhes(detalhes, array, size, tempo);
+                opcao_ordenacao = 0;
                 break;
             case 3:
                 //mergeSort();
+                showDetalhes(detalhes, array, size, tempo);
+                opcao_ordenacao = 0;
                 break;
             case 4:
                 gnomeSort(array, size, detalhes, tempo);
@@ -137,7 +142,9 @@ int main(){
                 opcao_ordenacao = 0;
                 break;
             case 6:
-                //shellSort();
+                shellSort(array, size, detalhes, tempo);
+                showDetalhes(detalhes, array, size, tempo);
+                opcao_ordenacao = 0;
                 break;
             case 7:
                 bubbleSort(array, size, detalhes, tempo);
