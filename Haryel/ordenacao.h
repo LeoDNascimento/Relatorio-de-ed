@@ -129,7 +129,48 @@ void shellSort(int *array, int size, unsigned long int *detalhes, float* tempo){
     tempo[1] = clock();
 }
 
+/*
+    Metodo: QuickSort
+*/
 
+void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes, float *tempo){
+
+    int pivo;
+
+    if(fim > inicio){
+        pivo = particiona(array, inicio, fim);
+        quickSort(array, inicio, pivo-1, detalhes, tempo);
+        quickSort(array, pivo+1, fim, detalhes, tempo);
+    }
+}
+
+int particiona(int *array, int inicio, int fim){
+    
+    int aux;
+    int esq = inicio;
+    int dir = fim; 
+    int pivo = array[inicio];
+
+    while(esq < dir){
+        while(array[esq] <= pivo)
+            esq++;
+        while(array[dir] > pivo)
+            dir--;
+        if(esq < dir){
+            aux = array[dir];
+            array[esq] = array[dir];
+            array[dir] = aux;
+        }
+    }
+    
+    array[inicio] = array[dir];
+    array[dir] = pivo;
+    
+    return dir;
+}
+
+//https://www.youtube.com/watch?v=spywQ2ix_Co QUICK
+//https://www.youtube.com/watch?v=RZbg5oT5Fgw&t=2s MERGE
 
 
 

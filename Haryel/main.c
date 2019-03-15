@@ -21,9 +21,10 @@ int main(){
     int opcao_busca;
     int size;
     int *array;
+    int inicio = 0;
+    int fim  = size;
     int valor;
     int posicao;
-
     srand(time(NULL));
     
 
@@ -122,7 +123,7 @@ int main(){
                 opcao_ordenacao = 0;
                 break;
             case 2:
-                //quickSort();
+                quickSort(array, inicio, fim, detalhes, tempo);
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
