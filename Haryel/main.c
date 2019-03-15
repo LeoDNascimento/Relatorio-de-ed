@@ -8,8 +8,7 @@
 #include "functions.h"
 #include "buscas.h"
 
-unsigned long int detalhes[] = {0,0};
-float tempo[] = {0,0};
+unsigned long int detalhes[2] = {0};
 
 int main(){
 
@@ -22,11 +21,11 @@ int main(){
     int size;
     int *array;
     int inicio = 0;
-    int fim  = size;
+    int fim;
     int valor;
     int posicao;
+    float tempo[2] = {0};
     srand(time(NULL));
-    
 
     /*
       Primeiro menu. Seleciona o tamanho do vetor. 
@@ -44,22 +43,27 @@ int main(){
                 return 0;
             case 1:
                 size = 10;
+                fim = size;
                 opcao_tamanho = 0;
                 break;
             case 2:
                 size = 100;
+                fim = size;
                 opcao_tamanho = 0;
                 break;
             case 3:
                 size = 1000;
+                fim = size;
                 opcao_tamanho = 0;
                 break;
             case 4:
                 size = 10000;
+                fim = size;
                 opcao_tamanho = 0;
                 break;
             case 5:
-                size = 100000;
+                size = 100000000;
+                fim = size;
                 opcao_tamanho = 0;
                 break;     
         }
@@ -118,37 +122,52 @@ int main(){
                 free(array);
                 return 0;
             case 1:
-                selectionSort(array, size, detalhes, tempo);
+                tempo[0] = clock();
+                selectionSort(array, size, detalhes);
+                tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 2:
-                quickSort(array, inicio, fim, detalhes, tempo);
+                detalhes[0] = 0; detalhes[1]= 0;
+                tempo[0] = clock();
+                quickSort(array, inicio, fim, detalhes);
+                tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 3:
+                tempo[0] = clock();
                 //mergeSort();
+                tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 4:
-                gnomeSort(array, size, detalhes, tempo);
+                tempo[0] = clock();
+                gnomeSort(array, size, detalhes);
+                tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 5:
-                insertionSort(array, size, detalhes, tempo);
+                tempo[0] = clock();
+                insertionSort(array, size, detalhes);
+                tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 6:
-                shellSort(array, size, detalhes, tempo);
+                tempo[0] = clock();
+                shellSort(array, size, detalhes);
+                tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
             case 7:
-                bubbleSort(array, size, detalhes, tempo);
+                tempo[0] = clock();
+                bubbleSort(array, size, detalhes);
+                tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
                 break;
