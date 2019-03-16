@@ -98,24 +98,24 @@ void insertionSort(int *array, int size, unsigned long int *detalhes){
 
 void shellSort(int *array, int size, unsigned long int *detalhes){
 
-    int aux, i, j;
-    int h = size/2;
+    int i = (size - 1)/2;
+    int chave, k, aux;
 
-    while(h > 0){
-        i = h;
-        while(i < size){
-            aux = array[i];
-            j = i;
-            detalhes[0]++;
-            while(j >= h && aux < array[j - h]){
-                array[j] = array[j - h];
-                j -= h;
-                detalhes[1]++;
+    while(i != 0){
+        do{
+            chave = 1;
+            for(k = 0; k < size - i; ++k){
+                detalhes[0]++;
+                if(array[k] > array[k + i]){
+                    aux = array[k];
+                    array[k] = array[k + 1];
+                    array[k + i] = aux;
+                    chave = 0;
+                    detalhes[1]++;
+                }
             }
-            array[j] = aux;
-            i += 1;
-        }
-    h /= 2;
+        }while(chave == 0);
+        i = i/2;
     }
 }
 
@@ -156,8 +156,60 @@ void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
     }
 }
 
-//https://www.youtube.com/watch?v=spywQ2ix_Co QUICK
-//https://www.youtube.com/watch?v=RZbg5oT5Fgw&t=2s MERGE
+void merge(int *array, int inicio, int meio, int fim, unsigned long int *detalhes){
+
+    int *vetAux, p1, p2, tamanho, i, j, k;
+    int fim1 = 0, fim2 = 0;
+    tamanho = fim - inicio + 1;
+    p1 = inicio;
+    p2 = meio + 1;
+    vetAux = (int *) malloc(tamanho * sizeof(int));
+
+    if(vetAux != NULL){
+        for(i = 0; i < tamanho; i++){
+            if(!fim1 && !fim2){
+                detalhes[0]++;
+                if(array[p1] < array[p2]){
+                    vetAux[i] = array[p1++];
+                    detalhes[1]++;
+                }
+                else{
+                    vetAux[i] = array[p2++];
+                    detalhes[1]++;
+                }
+                if(p1 > meio)
+                    fim = 1;
+                if(p2 > fim)
+                    fim2 = 1;
+            } else {
+                detalhes[0]++;
+                if(!fim1){
+                    vetAux[i] = array[p1++];
+                    detalhes[1]++;
+                }
+                else{
+                    vetAux[i] = array[p2++];
+                    detalhes[1]++;
+                }
+            }
+        }
+        for(j = 0, k = inicio; j < tamanho; j++, k++){
+            array[k] = vetAux[j];
+        }
+            
+    }
+    free(vetAux);
+}
+
+void mergeSort(int *array, int inicio, int fim, unsigned long int *detalhes){
+    int meio;
+    if(inicio < fim){
+        meio = floor((fim + inicio)/2);
+        mergeSort(array, inicio, meio, detalhes);
+        mergeSort(array, meio+1, fim, detalhes);
+        merge(array, inicio, meio, fim, detalhes);
+    }
+}
 
 
 

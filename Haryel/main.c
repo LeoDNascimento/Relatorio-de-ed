@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include <math.h>
 #include "vetores.h"
 #include "ordenacao.h"
 #include "menu.h"
@@ -62,7 +63,7 @@ int main(){
                 opcao_tamanho = 0;
                 break;
             case 5:
-                size = 100000000;
+                size = 100000;
                 fim = size;
                 opcao_tamanho = 0;
                 break;     
@@ -137,8 +138,9 @@ int main(){
                 opcao_ordenacao = 0;
                 break;
             case 3:
+                detalhes[0] = 0; detalhes[1] = 0;
                 tempo[0] = clock();
-                //mergeSort();
+                mergeSort(array, inicio, fim, detalhes);
                 tempo[1] = clock();
                 showDetalhes(detalhes, array, size, tempo);
                 opcao_ordenacao = 0;
