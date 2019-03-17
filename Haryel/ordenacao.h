@@ -77,16 +77,19 @@ void gnomeSort(int *array, int size, unsigned long int *detalhes){
 
 void insertionSort(int *array, int size, unsigned long int *detalhes){
 
-    int aux, i, j;
-    
+    int i, j, key;
+
     for(i = 1; i < size; i++){
-        aux = array[i]; //auxiliar recebe o valor da posicao i[1]
+        key = array[i];
+        j = i - 1;
         detalhes[0]++;
-        for(j = i; (j > 0) && (aux < array[j-1]); j--){ //aux, i, j nesse momento sao o mesmo valor. A comparacao eh feita com entre a posicao atual e sua anterior.
-            array[j] = array[j-1]; //a casa anterior eh copiada para a atual ou seja, os maiores sao deslocados para direita
-        }   
-        array[j] = aux; //aux vai ser o novo valor de J
-        detalhes[1]++;
+
+        while(j >= 0 && array[j] > key){
+            array[j+1] = array[j];
+            j = j - 1;
+            detalhes[1]++;
+        }
+        array[j + 1] = key;
     }
 }
 
