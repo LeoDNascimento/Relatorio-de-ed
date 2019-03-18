@@ -131,18 +131,18 @@ void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
 
     i = inicio;
     j = fim-1;
-    pivo = array[(inicio + fim) / 2];
+    pivo = array[(inicio + fim) / 2]; //define o pivo como o elemento do meio
   
-    while(i <= j){
-        while(array[i] < pivo && i < fim){
+    while(i <= j){ // laco continua até quando a direita for menor que a esquerda, esse é o sinal indicativo que todo o vetor foi percorrido e as trocas foram feitas
+        while(array[i] < pivo && i < fim){ //anda com a esquerda até achar um elemento que seja maior que o pivo
             detalhes[0]++;
             i++;
         }
-        while(array[j] > pivo && j > inicio){
+        while(array[j] > pivo && j > inicio){ //anda com a direita até achar um valor que seja menor que o pivo
             detalhes[0]++;
             j--;
         }
-        if(i <= j){
+        if(i <= j){ //compara as posições ao final dos laços
             aux = array[i];
             array[i] = array[j];
             array[j] = aux;
@@ -151,9 +151,9 @@ void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
             j--;
         }
     }
-    if(j > inicio)
+    if(j > inicio) //chama a funcao para a parte da esquerda repetindo todo o processo descrito acima
         quickSort(array, inicio, j+1, detalhes);
-    if(i < fim){
+    if(i < fim){ //chama a funcao para a parte da direita repetindo todo o processo descrito acima
         quickSort(array, i, fim, detalhes);
     }
 }
