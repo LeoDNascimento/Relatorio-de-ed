@@ -87,6 +87,7 @@ void insertionSort(int *array, int size, unsigned long int *detalhes){
         while(j >= 0 && array[j] > key){
             array[j+1] = array[j];
             j = j - 1;
+            detalhes[0]++;
             detalhes[1]++;
         }
         array[j + 1] = key;
