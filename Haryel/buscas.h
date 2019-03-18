@@ -1,8 +1,8 @@
 int buscaSeq(int *array, int size, int valor){
 
-    for(int i = 0; i < size; i++){
+    for(int i = 0; i < size; i++){ //Compara posição a posição com valor 
         if(array[i] == valor)
-            return i;
+            return i; //retorna o indice onde o valor foi encontrado
     }
     
     return false;
