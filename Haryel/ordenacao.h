@@ -2,8 +2,6 @@
     Metodo: BubbleSort
 */
 
-int particiona(int*, int, int);
-
 void bubbleSort(int *array, int size, unsigned long int *detalhes){
 
 	int aux = 0;
@@ -127,36 +125,37 @@ void shellSort(int *array, int size, unsigned long int *detalhes){
     Metodo: QuickSort
 */
 
-void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
-
-    int i, j, pivo, aux;
-
-    i = inicio;
-    j = fim-1;
-    pivo = array[(inicio + fim) / 2];
-  
-    while(i <= j){
-        while(array[i] < pivo && i < fim){
+int particiona(int *array, int inicio, int fim, unsigned long int *detalhes){
+    int esq, dir, pivo, aux;
+    esq = inicio;
+    dir = fim;
+    pivo = array[inicio]; //define o pivo como a primeira posicao do vetor
+    while(esq < dir){ // laco continua até quando a direita for menor que a esquerda, esse é o sinal indicativo que todo o vetor foi percorrido e as trocas foram feitas
+        while(array[esq] <= pivo) //anda com a esquerda até achar um elemento que seja maior que o pivo
+            esq++;
             detalhes[0]++;
-            i++;
-        }
-        while(array[j] > pivo && j > inicio){
+        while(array[dir] > pivo) //anda com a direita até achar um valor que seja menor que o pivo
+            dir--;
             detalhes[0]++;
-            j--;
-        }
-        if(i <= j){
-            aux = array[i];
-            array[i] = array[j];
-            array[j] = aux;
+        if(esq < dir){ //compara as posições ao final dos laços
+            aux = array[esq];
+            array[esq] = array[dir];
+            array[dir] = aux;
             detalhes[1]++;
-            i++;
-            j--;
         }
     }
-    if(j > inicio)
-        quickSort(array, inicio, j+1, detalhes);
-    if(i < fim){
-        quickSort(array, i, fim, detalhes);
+    array[inicio] = array[dir]; //inicio vai receber a ultima posicao da direita que vai ser a menor posição
+    array[dir] = pivo; //a ultima posicao da direita recebe o pivo 
+
+    return dir; //ponto do vetor onde todos os elementos antes dele sao menores e todos os que estão apos ele sao os maiores, agora pode chamar o quicksort para as duas partes
+}
+
+void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
+    int pivo;
+    if(fim > inicio){
+        pivo = particiona(array, inicio, fim, detalhes); //colocar um pivo, onde todos a esquerda sao menores e a direita maiores para chamar o quicksort para os dois lados
+        quickSort(array, inicio, pivo-1, detalhes); //chama para esquerda
+        quickSort(array, pivo+1, fim, detalhes); //chama pra direita
     }
 }
 
@@ -165,28 +164,29 @@ void merge(int *array, int inicio, int meio, int fim, unsigned long int *detalhe
     int *vetAux, p1, p2, tamanho, i, j, k;
     int fim1 = 0, fim2 = 0;
     tamanho = fim - inicio + 1;
-    p1 = inicio;
-    p2 = meio + 1;
-    vetAux = (int *) malloc(tamanho * sizeof(int));
+    p1 = inicio; //vetor a ser combinado
+    p2 = meio + 1; //vetor a ser combinado
+    vetAux = (int *) malloc(tamanho * sizeof(int)); //aloca vetor que irá receber os dados das comparações entre p1 e p2 
 
     if(vetAux != NULL){
         for(i = 0; i < tamanho; i++){
             if(!fim1 && !fim2){
-                detalhes[0]++;
-                if(array[p1] < array[p2]){
+                if(array[p1] < array[p2]){  //verifica quem é menor entre p1 e p2 para inserir no vetor auxiliar nesse bloco (IF/ELSE)
+                    detalhes[0]++;
                     vetAux[i] = array[p1++];
                     detalhes[1]++;
                 }
                 else{
+                    detalhes[0]++;
                     vetAux[i] = array[p2++];
                     detalhes[1]++;
                 }
-                if(p1 > meio)
+
+                if(p1 > meio) //Verifica se algum dos vetores acabou, caso tenham acabado, modificam a variavel fim para que o if chegue ai fim. *OTIMIZAÇÃO*
                     fim = 1;
                 if(p2 > fim)
                     fim2 = 1;
-            } else {
-                detalhes[0]++;
+            } else { //copia o que nao acabou para o vetor auxiliar
                 if(!fim1){
                     vetAux[i] = array[p1++];
                     detalhes[1]++;
@@ -196,22 +196,22 @@ void merge(int *array, int inicio, int meio, int fim, unsigned long int *detalhe
                     detalhes[1]++;
                 }
             }
-        }
-        for(j = 0, k = inicio; j < tamanho; j++, k++){
+        } 
+        for(j = 0, k = inicio; j < tamanho; j++, k++){ //copia os dados do auxiliar para o vetor original
             array[k] = vetAux[j];
         }
             
     }
-    free(vetAux);
+    free(vetAux); //libera o auxiliar
 }
 
 void mergeSort(int *array, int inicio, int fim, unsigned long int *detalhes){
     int meio;
     if(inicio < fim){
         meio = floor((fim + inicio)/2);
-        mergeSort(array, inicio, meio, detalhes);
-        mergeSort(array, meio+1, fim, detalhes);
-        merge(array, inicio, meio, fim, detalhes);
+        mergeSort(array, inicio, meio, detalhes); //chama funcao pra metade da esquerda
+        mergeSort(array, meio+1, fim, detalhes); //chama funcao para metade da direita
+        merge(array, inicio, meio, fim, detalhes); //combina as duas metades de forma ordenada
     }
 }
 
