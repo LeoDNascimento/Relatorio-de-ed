@@ -125,37 +125,36 @@ void shellSort(int *array, int size, long int *detalhes){
     Metodo: QuickSort
 */
 
-int particiona(int *array, int inicio, int fim, long int *detalhes){
-    int esq, dir, pivo, aux;
-    esq = inicio;
-    dir = fim;
-    pivo = array[inicio]; //define o pivo como a primeira posicao do vetor
-    while(esq < dir){ // laco continua até quando a direita for menor que a esquerda, esse é o sinal indicativo que todo o vetor foi percorrido e as trocas foram feitas
-        while(array[esq] <= pivo) //anda com a esquerda até achar um elemento que seja maior que o pivo
-            esq++;
+void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
+
+    int i, j, pivo, aux;
+
+    i = inicio;
+    j = fim-1;
+    pivo = array[(inicio + fim) / 2];
+  
+    while(i <= j){
+        while(array[i] < pivo && i < fim){
             detalhes[0]++;
-        while(array[dir] > pivo) //anda com a direita até achar um valor que seja menor que o pivo
-            dir--;
+            i++;
+        }
+        while(array[j] > pivo && j > inicio){
             detalhes[0]++;
-        if(esq < dir){ //compara as posições ao final dos laços
-            aux = array[esq];
-            array[esq] = array[dir];
-            array[dir] = aux;
+            j--;
+        }
+        if(i <= j){
+            aux = array[i];
+            array[i] = array[j];
+            array[j] = aux;
             detalhes[1]++;
+            i++;
+            j--;
         }
     }
-    array[inicio] = array[dir]; //inicio vai receber a ultima posicao da direita que vai ser a menor posição
-    array[dir] = pivo; //a ultima posicao da direita recebe o pivo 
-
-    return dir; //ponto do vetor onde todos os elementos antes dele sao menores e todos os que estão apos ele sao os maiores, agora pode chamar o quicksort para as duas partes
-}
-
-void quickSort(int *array, int inicio, int fim, long int *detalhes){
-    int pivo;
-    if(fim > inicio){
-        pivo = particiona(array, inicio, fim, detalhes); //colocar um pivo, onde todos a esquerda sao menores e a direita maiores para chamar o quicksort para os dois lados
-        quickSort(array, inicio, pivo-1, detalhes); //chama para esquerda
-        quickSort(array, pivo+1, fim, detalhes); //chama pra direita
+    if(j > inicio)
+        quickSort(array, inicio, j+1, detalhes);
+    if(i < fim){
+        quickSort(array, i, fim, detalhes);
     }
 }
 
