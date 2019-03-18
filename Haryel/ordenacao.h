@@ -6,10 +6,10 @@ void bubbleSort(int *array, int size, long int *detalhes){
 
 	int aux = 0;
 
-	for(int i = 0; i < size-1; i++){
-		for(int j = 0; j < size-1; j++){
+	for(int i = 0; i < size-1; i++){ //laco maior que percorre todo o vetor, posicao a posicao
+		for(int j = 0; j < size-1; j++){ //laco que seleciona a posicao do indice e as compara com as posicoes a sua direita ate que o maior seja colocado como o ultimo indice do vetor
 			detalhes[0]++;
-			if(array[j] > array[j+1]){
+			if(array[j] > array[j+1]){ //se a posicao atual for maior que a proxima, a proxima será copiada para a atual e a proxima recebera a atual.
 				aux = array[j];
 				array[j] = array[j+1];
 				array[j+1] = aux;
@@ -75,20 +75,20 @@ void gnomeSort(int *array, int size, long int *detalhes){
 
 void insertionSort(int *array, int size, long int *detalhes){
 
-    int i, j, key;
+    int i, j, aux;
 
-    for(i = 1; i < size; i++){
-        key = array[i];
-        j = i - 1;
-        detalhes[0]++;
+    for(i = 1; i < size; i++){ //percorre todo o vetor
+        aux = array[i]; //atribui com o valor referente ao indice atual
+        j = i - 1; //joga vai receber o indice anterior 
+        detalhes[0]++; 
 
-        while(j >= 0 && array[j] > key){
-            array[j+1] = array[j];
+        while(j >= 0 && array[j] > aux){ //enquanto o indice j for maior ou igual a 0 e o valor dessa posicao for maior que auxiliar
+            array[j+1] = array[j]; //esse laco copia todas as posições que são maiores que a posicao atual e insere na posição certa
             j = j - 1;
             detalhes[0]++;
             detalhes[1]++;
         }
-        array[j + 1] = key;
+        array[j + 1] = aux; //insereve o valor atual na posicao correta
     }
 }
 
