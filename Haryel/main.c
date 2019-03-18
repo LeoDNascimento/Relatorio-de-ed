@@ -9,7 +9,7 @@
 #include "functions.h"
 #include "buscas.h"
 
-unsigned long int detalhes[2] = {0};
+long int detalhes[2] = {0};
 
 int main(){
 

@@ -2,7 +2,7 @@
     Metodo: BubbleSort
 */
 
-void bubbleSort(int *array, int size, unsigned long int *detalhes){
+void bubbleSort(int *array, int size, long int *detalhes){
 
 	int aux = 0;
 
@@ -23,22 +23,22 @@ void bubbleSort(int *array, int size, unsigned long int *detalhes){
     Metodo: SelectionSort
 */
 
-void selectionSort(int *array, int size, unsigned long int *detalhes){
+void selectionSort(int *array, int size, long int *detalhes){
 
     int menor, troca;
 
-    for(int i = 0; i < size-1; i++){
-        menor = i;
-        for(int j = i+1; j < size; j++){
+    for(int i = 0; i < size-1; i++){ // laço que faz a comparação para todas as posições
+        menor = i; //considerando o menor valor na posição em que o laço esta
+        for(int j = i+1; j < size; j++){ //procura o menor elemento em relação a i por todo o vetor
             detalhes[0]++;
             if(array[j] < array[menor]){
-                menor = j;
+                menor = j; //se encontrar um menor, atualiza o indice, o novo menor será o elemento encontrado, no caso j.
             }
         }
-        if(i != menor){
+        if(i != menor){ //testa se o valor do menor foi alterado, se o i foi substituido pelo j 
             troca = array[i];
             array[i] = array[menor];
-            array[menor] = troca;
+            array[menor] = troca; //troca os valores da posicao atual para a posicao menor
             detalhes[1]++;
         }
     }
@@ -48,16 +48,16 @@ void selectionSort(int *array, int size, unsigned long int *detalhes){
     Metodo: GnomeSort
 */
 
-void gnomeSort(int *array, int size, unsigned long int *detalhes){
+void gnomeSort(int *array, int size, long int *detalhes){
    
    int i, aux;
 
-   for(int i = 1; i < size;){
+   for(int i = 1; i < size;){ //percorre o vetor comparando se o que esta guardado no indice anterior é menor que o próximo índice 
        if(array[i-1] <= array[i]){
            ++i;
            detalhes[0]++;
        }
-       else{
+       else{ //caso o valor anterior seja maior que o próximo, será trocado.
            detalhes[1]++;
            aux = array[i];
            array[i] = array[i-1];
@@ -73,7 +73,7 @@ void gnomeSort(int *array, int size, unsigned long int *detalhes){
     Metodo: InsertionSort
 */
 
-void insertionSort(int *array, int size, unsigned long int *detalhes){
+void insertionSort(int *array, int size, long int *detalhes){
 
     int i, j, key;
 
@@ -98,7 +98,7 @@ void insertionSort(int *array, int size, unsigned long int *detalhes){
     Apos cada interacao dividimos h novamente por 2, ate o h ser igual a um. Nesse momento ele passa por todas as posicoes.
 */
 
-void shellSort(int *array, int size, unsigned long int *detalhes){
+void shellSort(int *array, int size, long int *detalhes){
 
     int i = (size - 1)/2;
     int chave, k, aux;
@@ -125,7 +125,7 @@ void shellSort(int *array, int size, unsigned long int *detalhes){
     Metodo: QuickSort
 */
 
-int particiona(int *array, int inicio, int fim, unsigned long int *detalhes){
+int particiona(int *array, int inicio, int fim, long int *detalhes){
     int esq, dir, pivo, aux;
     esq = inicio;
     dir = fim;
@@ -150,7 +150,7 @@ int particiona(int *array, int inicio, int fim, unsigned long int *detalhes){
     return dir; //ponto do vetor onde todos os elementos antes dele sao menores e todos os que estão apos ele sao os maiores, agora pode chamar o quicksort para as duas partes
 }
 
-void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
+void quickSort(int *array, int inicio, int fim, long int *detalhes){
     int pivo;
     if(fim > inicio){
         pivo = particiona(array, inicio, fim, detalhes); //colocar um pivo, onde todos a esquerda sao menores e a direita maiores para chamar o quicksort para os dois lados
@@ -159,7 +159,7 @@ void quickSort(int *array, int inicio, int fim, unsigned long int *detalhes){
     }
 }
 
-void merge(int *array, int inicio, int meio, int fim, unsigned long int *detalhes){
+void merge(int *array, int inicio, int meio, int fim, long int *detalhes){
 
     int *vetAux, p1, p2, tamanho, i, j, k;
     int fim1 = 0, fim2 = 0;
@@ -205,7 +205,7 @@ void merge(int *array, int inicio, int meio, int fim, unsigned long int *detalhe
     free(vetAux); //libera o auxiliar
 }
 
-void mergeSort(int *array, int inicio, int fim, unsigned long int *detalhes){
+void mergeSort(int *array, int inicio, int fim, long int *detalhes){
     int meio;
     if(inicio < fim){
         meio = floor((fim + inicio)/2);

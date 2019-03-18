@@ -7,7 +7,7 @@ void doing(int* array, int size){
     getchar();
 }
 
-void showDetalhes(unsigned long int* detalhes, int* array, int size, float* tempo){
+void showDetalhes(long int* detalhes, int* array, int size, float* tempo){
 
     system("clear");
     
