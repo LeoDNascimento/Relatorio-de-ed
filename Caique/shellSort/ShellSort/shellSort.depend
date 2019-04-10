@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1552315245 source:c:\users\kkk\documents\shellsort\shellsort\main.c
-	<stdio.h>
-	<stdlib.h>
-	<ctype.h>
-	<string.h>
-	<time.h>
-	<stdbool.h>
-

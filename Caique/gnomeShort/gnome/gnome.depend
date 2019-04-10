@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1552339566 source:c:\users\kkk\documents\gnomeshort\gnome\main.c
-	<stdio.h>
-	<stdlib.h>
-	<ctype.h>
-	<string.h>
-	<stdbool.h>
-	<time.h>
-
